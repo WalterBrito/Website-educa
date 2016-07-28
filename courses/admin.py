@@ -1,6 +1,7 @@
 from django.contrib import admin
 from .models import Subject, Course, Module
 
+
 @admin.register(Subject)
 class SubjectAdmin(admin.ModelAdmin):
     list_display = ['title', 'slug']
@@ -8,7 +9,7 @@ class SubjectAdmin(admin.ModelAdmin):
 
 
 class ModuleInline(admin.StackedInline):
-    model = Module 
+    model = Module
 
 
 @admin.register(Course)

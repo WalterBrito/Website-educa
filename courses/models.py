@@ -16,7 +16,7 @@ class Subject(models.Model):
 class Course(models.Model):
     owner = models.ForeignKey(User,
                               related_name='courses_created')
-    Subject = models.ForeignKey(Subject,
+    subject = models.ForeignKey(Subject,
                                 related_name='courses')
     title = models.CharField(max_length=200)
     slug = models.SlugField(max_length=200, unique=True)
