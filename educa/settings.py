@@ -41,6 +41,7 @@ INSTALLED_APPS = (
     'students',
     'embed_video',
     'memcache_status',
+    'rest_framework',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -107,7 +108,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-from django.core.urlresolvers import reverse_lazy 
+from django.core.urlresolvers import reverse_lazy
 LOGIN_REDIRECT_URL = reverse_lazy('student_course_list')
 
 MEDIA_URL = '/media/'
@@ -121,5 +122,11 @@ CACHES = {
 }
 
 CACHE_MIDDLEWARE_ALIAS = 'default'
-CACHE_MIDDLEWARE_SECONDS = 60 * 15 # 15 minutes
+CACHE_MIDDLEWARE_SECONDS = 60 * 15  # 15 minutes
 CACHE_MIDDLEWARE_KEY_PREFIX = 'educa'
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+}
